@@ -4,65 +4,20 @@ import json
 with open("telemetry/telemetry.json", "r") as file:
     telemetry_data = json.load(file)
 
-# Assign variables to key names in JSON
-HZN_001 = "HZN-001"
-HZN_002 = "HZN-002"
-HZN_003 = "HZN-003"
-temperature = "temperature"
-voltage = "voltage"
-timestamp = "timestamp"
+satellite_ids = ["HZN-001","HZN-002","HZN-003","HZN-004"]
+required_field = ["temperature","timestamp","voltage","age"]
 
-# HZN_001 check
-if HZN_001 in telemetry_data:
-    print(f"\n{HZN_001} present in telemetry_data")
-    if temperature in telemetry_data[HZN_001]:
-        print(f"Temperature present in {HZN_001}")
+# Check that the satellite is present in the telemetry data
+# If it is, print that it is present, if not, print absent
+# If it is present, check what fields are present for that particular satellite, print these
+# If one isn't present, print that the field in question is absent
+for satellite_id in satellite_ids:
+    if satellite_id in telemetry_data:
+        print("\n", satellite_id, "present")
+        for field in required_field:
+            if field in telemetry_data[satellite_id]:
+                print(satellite_id, field, "field present")
+            else:
+                print(satellite_id, field, "field absent")
     else:
-        print(f"Temperature not present in {HZN_001}")
-    if voltage in telemetry_data[HZN_001]:
-        print(f"Voltage present in {HZN_001}")
-    else:
-        print(f"Voltage not present in {HZN_001}")
-    if timestamp in telemetry_data[HZN_001]:
-        print(f"Timestamp present in {HZN_001}")
-    else:
-        print(f"Timestamp not present in {HZN_001}")
-else:
-    print(f"Failed to retrieve data for {HZN_001}")
-
-# HZN_002 check
-if HZN_002 in telemetry_data:
-    print(f"\n{HZN_002} present in telemetry_data")
-    if temperature in telemetry_data[HZN_002]:
-        print(f"Temperature present in {HZN_002}")
-    else:
-        print(f"Temperature not present in {HZN_002}")
-    if voltage in telemetry_data[HZN_002]:
-        print(f"Voltage present in {HZN_002}")
-    else:
-        print(f"Voltage not present in {HZN_002}")
-    if timestamp in telemetry_data[HZN_002]:
-        print(f"Timestamp present in {HZN_002}")
-    else:
-        print(f"Timestamp not present in {HZN_002}")
-else:
-    print(f"Failed to retrieve data for {HZN_002}")
-
-
-# HZN_003 check
-if HZN_003 in telemetry_data:
-    print(f"\n{HZN_003} present in telemetry_data")
-    if temperature in telemetry_data[HZN_003]:
-        print(f"Temperature present in {HZN_003}")
-    else:
-        print(f"Temperature not present in {HZN_003}")
-    if voltage in telemetry_data[HZN_003]:
-        print(f"Voltage present in {HZN_003}")
-    else:
-        print(f"Voltage not present in {HZN_003}")
-    if timestamp in telemetry_data[HZN_003]:
-        print(f"Timestamp present in {HZN_003}")
-    else:
-        print(f"Timestamp not present in {HZN_003}")
-else:
-    print(f"Failed to retrieve data for {HZN_003}")
+        print(satellite_id, " absent")
