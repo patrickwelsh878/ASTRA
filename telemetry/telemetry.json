@@ -1,0 +1,32 @@
+{
+  "HZN-001": {
+    "temperature": 15.2,
+    "voltage": 28.8,
+    "position": {
+      "x_km": 5000.1,
+      "y_km": -532.1,
+      "z_km": 200.9
+    },
+    "timestamp": "2026-01-01T12:00:00Z"
+  },
+  "HZN-002": {
+    "temperature": 16.2,
+    "voltage": 30.5,
+    "position": {
+      "x_km": 1234.5,
+      "y_km": -532.1,
+      "z_km": 900.9
+    },
+    "timestamp": "2026-01-01T12:00:00Z"
+  },
+  "HZN-003": {
+    "temperature": 30.5,
+    "voltage": 40.1,
+    "position": {
+      "x_km": 10400.8,
+      "y_km": -511.1,
+      "z_km": 700.9
+    },
+    "timestamp": "2026-01-01T12:00:00Z"
+  }
+}
